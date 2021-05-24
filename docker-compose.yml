@@ -1,0 +1,41 @@
+version: '3.1'
+services:
+  db:
+    image: zecure/shadowd_database:12.4
+    restart: always
+    volumes:
+      - "${SHADOWD_DB_LOCATION}:/var/lib/postgresql/data"
+    env_file:
+      - "${SHADOWD_ENV_DB_LOCATION}"
+
+  web:
+    image: zecure/shadowd_ui:2
+    restart: always
+    ports:
+      - 8080:80
+    links:
+      - db
+    depends_on:
+      - db
+    environment:
+      - "SHADOWD_DB_HOST=db"
+    env_file:
+      - "${SHADOWD_ENV_DB_LOCATION}"
+
+  shadowd:
+    image: zecure/shadowd
+    restart: always
+    ports:
+      - 9115:9115
+    links:
+      - db
+    depends_on:
+      - db
+    environment:
+      - "SHADOWD_DB_HOST=db"
+    env_file:
+      - "${SHADOWD_ENV_DB_LOCATION}"
+
+    # Example for more verbose logging. Uncomment to enable.
+    command: ["/usr/bin/shadowd", "-c", "/etc/shadowd/shadowd.ini", "-U", "shadowd", "-G", "shadowd", "--verbose"]
+
