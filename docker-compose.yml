@@ -23,7 +23,7 @@ services:
       - "${SHADOWD_ENV_DB_LOCATION}"
 
   shadowd:
-    image: zecure/shadowd
+    image: zecure/shadowd:2
     restart: always
     ports:
       - 9115:9115
@@ -37,5 +37,5 @@ services:
       - "${SHADOWD_ENV_DB_LOCATION}"
 
     # Example for more verbose logging. Uncomment to enable.
-    command: ["/usr/bin/shadowd", "-c", "/etc/shadowd/shadowd.ini", "-U", "shadowd", "-G", "shadowd", "--verbose"]
+    #command: ["/usr/bin/shadowd", "-c", "/etc/shadowd/shadowd.ini", "-U", "shadowd", "-G", "shadowd", "--verbose"]
 
