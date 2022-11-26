@@ -1,14 +1,11 @@
 ![Logo](http://shadowd.zecure.org/img/logo_small.png)
 
-**Shadow Daemon** is a collection of tools to **detect**, **record** and **prevent** **attacks** on *web applications*.
-Technically speaking, Shadow Daemon is a **web application firewall** that intercepts requests and filters out malicious parameters.
-It is a modular system that separates web application, analysis and interface to increase security, flexibility and expandability.
-
-This is a simple docker-compose wrapper to manage Shadow Daemon installations.
+**Shadow Daemon** is a *web application firewall* that intercepts requests at the application level.
+This repository contains a simple docker-compose wrapper to manage Shadow Daemon installations.
 
 # Requirements
 
-Install [Docker](https://docs.docker.com/install/), and [Docker Compose](https://docs.docker.com/compose/install/).
+Install [Docker](https://docs.docker.com/install/) and [Docker Compose](https://docs.docker.com/compose/install/).
 
 # Setup
 
