@@ -12,7 +12,7 @@ services:
     image: zecure/shadowd_ui:2
     restart: always
     ports:
-      - 8080:80
+      - 127.0.0.1:8080:80
     links:
       - db
     depends_on:
@@ -26,7 +26,7 @@ services:
     image: zecure/shadowd:2
     restart: always
     ports:
-      - 9115:9115
+      - 127.0.0.1:9115:9115
     links:
       - db
     depends_on:
